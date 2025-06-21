@@ -4,180 +4,319 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | Face to Face Medispa</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #f9e4e4; /* Blush pink */
+      --accent: #d4af37; /* Gold */
+      --background: #f8f1e9; /* Ivory */
+      --text-dark: #2b2b2b;
+      --text-light: #5a5a5a;
+      --glass-bg: rgba(255, 255, 255, 0.2);
+    }
+
     * {
       box-sizing: border-box;
-    }
-    body {
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom, #f6f3f9, #eae2f8);
-      overflow-x: hidden;
-      color: #333;
+      background: var(--background);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
 
     .hero {
-      min-height: 100vh;
-      background: url('https://images.unsplash.com/photo-1613553480681-0db2c9f9d74f?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
-    }
-
-    .contact-card {
-      position: relative;
-      max-width: 800px;
-      width: 90%;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      z-index: 10;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-      border: 1px solid rgba(255,255,255,0.2);
-      animation: fadeIn 1.5s ease;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 5%;
+      text-align: center;
+      color: white;
+      animation: fadeIn 1.5s ease-in;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    .contact-card h2 {
+    .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: #fff;
-      margin-bottom: 10px;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 20px;
     }
 
-    .contact-card p {
-      color: #ddd;
-      font-size: 1rem;
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 80px 5%;
+      background: var(--background);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .contact-left {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .contact-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .info-item:hover {
+      transform: translateX(10px);
+    }
+
+    .info-item a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-right {
+      padding: 40px;
+    }
+
+    .contact-right h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 15px;
+    }
+
+    .contact-right p {
+      color: var(--text-light);
       margin-bottom: 20px;
     }
 
     form {
-      display: grid;
-      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    .input-group {
-      position: relative;
-    }
-
-    .input-group i {
-      position: absolute;
-      top: 50%;
-      left: 14px;
-      transform: translateY(-50%);
-      color: #888;
-    }
-
-    .input-group input,
-    .input-group textarea {
-      width: 100%;
-      padding: 14px 14px 14px 40px;
-      border: none;
-      border-radius: 8px;
+    label {
+      font-weight: 600;
       font-size: 1rem;
-      background: rgba(255,255,255,0.9);
-      color: #333;
-      outline: none;
-      font-family: inherit;
     }
 
-    .input-group textarea {
-      resize: vertical;
-      min-height: 100px;
+    input, textarea {
+      padding: 14px;
+      border: 1px solid var(--primary);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(5px);
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+      outline: none;
     }
 
     button {
-      padding: 14px;
-      background: #a678dd;
-      color: white;
-      font-size: 1rem;
-      font-weight: bold;
+      background: var(--accent);
+      color: var(--text-dark);
+      padding: 16px;
       border: none;
       border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     button:hover {
-      background: #7f56c8;
+      background: #b89730;
+      transform: scale(1.05);
     }
 
-    .contact-info {
-      margin-top: 20px;
-      color: #eee;
-      font-size: 0.95rem;
+    .map-container {
+      margin-top: 40px;
+    }
+
+    .map-container img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .testimonials {
+      margin-top: 60px;
+      padding: 0 5%;
       text-align: center;
     }
 
-    .map {
-      margin-top: 40px;
-      width: 100%;
-      height: 300px;
-      border: none;
-      border-radius: 12px;
+    .testimonials h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 30px;
     }
 
-    @media (max-width: 600px) {
-      .contact-card {
-        padding: 30px 20px;
+    .testimonial-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+      scrollbar-width: thin;
+    }
+
+    .testimonial-card {
+      flex: 0 0 300px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    .testimonial-card span {
+      display: block;
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .booking-cta {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: var(--text-dark);
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .booking-cta:hover {
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        padding: 40px 5%;
+      }
+
+      .contact-left, .contact-right {
+        padding: 20px;
+      }
+
+      .hero {
+        padding: 60px 5%;
       }
     }
   </style>
 </head>
 <body>
+  <div class="hero">
+    <h1>Contact Face to Face Medispa</h1>
+    <p>Connect with our team to start your journey to radiant beauty. We’re here to answer your questions and book your next appointment.</p>
+  </div>
 
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="contact-card">
-      <h2>Let’s Connect</h2>
-      <p>Book your glow-up consultation. We’ll make sure your experience is divine from hello to goodbye.</p>
-      <form action="https://formspree.io/f/yourFormID" method="POST">
-        <div class="input-group">
-          <i class="fas fa-user"></i>
-          <input type="text" name="name" placeholder="Your Name" required>
+  <div class="contact-wrapper">
+    <div class="contact-left">
+      <h2>Get in Touch</h2>
+      <div class="contact-info">
+        <div class="info-item">
+          <span>Email:</span>
+          <a href="mailto:info@facetofacemedispa.com">info@facetofacemedispa.com</a>
         </div>
-        <div class="input-group">
-          <i class="fas fa-envelope"></i>
-          <input type="email" name="_replyto" placeholder="Your Email" required>
+        <div class="info-item">
+          <span>Phone:</span>
+          <a href="tel:+19733730777">(973) 373-0777</a>
         </div>
-        <div class="input-group">
-          <i class="fas fa-phone"></i>
-          <input type="tel" name="phone" placeholder="Phone Number">
+        <div class="info-item">
+          <span>Visit:</span>
+          <span>1500 Pleasant Valley Way, West Orange, NJ</span>
         </div>
-        <div class="input-group">
-          <i class="fas fa-comment"></i>
-          <textarea name="message" placeholder="Write your message..." required></textarea>
-        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <h3>Send a Message</h3>
+      <p>We’ll get back to you within 24 hours.</p>
+      <form action="https://formspree.io/f/mexample" method="POST">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required aria-required="true">
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="_replyto" required aria-required="true">
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+
         <button type="submit">Send Message</button>
       </form>
-      <div class="contact-info">
-        📧 info@facetofacemedispa.com &nbsp;|&nbsp; 📞 (973) 324‑5333<br/>
-        📍 1500 Pleasant Valley Way, Suite 307, West Orange, NJ 07052
-      </div>
-      <iframe class="map" 
-        src="https://maps.google.com/maps?q=1500%20Pleasant%20Valley%20Way%20West%20Orange%20NJ&t=&z=14&ie=UTF8&iwloc=&output=embed" 
-        loading="lazy" allowfullscreen>
-      </iframe>
-    </div>
-  </section>
 
+      <div class="map-container">
+        <img src="https://via.placeholder.com/600x300?text=Map+of+1500+Pleasant+Valley+Way" alt="Map of Face to Face Medispa">
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonials">
+    <h3>Our Clients Love Us</h3>
+    <div class="testimonial-carousel">
+      <div class="testimonial-card">
+        <p>"The team at Face to Face transformed my skin! So professional and welcoming."</p>
+        <span>– Emily R.</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"Best medispa experience ever. I can’t wait to come back!"</p>
+        <span>– Lisa M.</span>
+      </div>
+      <div class="testimonial-card">
+        <p>"Personalized care and amazing results. Highly recommend!"</p>
+        <span>– Sarah K.</span>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://www.facetofacemedispa.com/book" class="booking-cta">Book Now</a>
 </body>
 </html>
