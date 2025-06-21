@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Exclusive Medispa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #8C52FF;
+      --background: #f7f5f9;
+      --text-dark: #1a1a1a;
+      --text-light: #666;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--text-dark);
+    }
+
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 60px 5%;
+      background: white;
+      box-shadow: 0 0 30px rgba(0,0,0,0.05);
+    }
+
+    .contact-left, .contact-right {
+      flex: 1;
+      min-width: 300px;
+      padding: 40px;
+    }
+
+    .contact-left {
+      background: var(--primary);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .contact-left p {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    .contact-left a {
+      color: white;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .contact-right h3 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+      font-family: 'Inter', sans-serif;
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #6c35d8;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      margin-top: 40px;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        flex-direction: column;
+        padding: 30px 5%;
+      }
+
+      .contact-left, .contact-right {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-wrapper">
+    <div class="contact-left">
+      <h2>Get In Touch</h2>
+      <p>Experience beauty and luxury with every consultation. We’re here to help you glow.</p>
+      <p>Email us: <a href="mailto:info@exclusiveclinic.com">info@exclusiveclinic.com</a></p>
+      <p>Call us: <a href="tel:+1234567890">(123) 456-7890</a></p>
+      <p>Visit: 123 Luxe Avenue, New York, NY</p>
+    </div>
+
+    <div class="contact-right">
+      <h3>Contact Form</h3>
+      <form action="https://formspree.io/f/mexample" method="POST">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="_replyto" required>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <iframe 
+        src="https://maps.google.com/maps?q=Manhattan&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+        allowfullscreen 
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+
+</body>
+</html>
